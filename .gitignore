@@ -43,3 +43,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /Calculator/nbproject/private/
+/Calculator/build/
+/Calculator/dist/
