@@ -55,6 +55,9 @@ public class Calculator {
     private JButton dotButton;
     private JButton percentButton;
     private JButton equalButton;
+    private JButton sinButton;
+    private JButton cosButton;
+    private JButton tanButton;
     //===============Panels===========//
     private JPanel panel1;
     private JPanel panel2;
@@ -190,6 +193,9 @@ public class Calculator {
         sqrtButton = new JButton("Sqrt");
         inversButton = new JButton("1/x");
         MemoryPlusButton = new JButton("M+");
+        sinButton = new JButton("sin");
+        tanButton = new JButton("tan");
+        cosButton= new JButton("cos");
 
 
         panel2.add(backSpaceButton);
@@ -202,13 +208,14 @@ public class Calculator {
         panel3.add(nine);
         panel3.add(divisionButton);
         panel3.add(sqrtButton);
-
+        panel3.add(sinButton);
 
         panel4.add(four);
         panel4.add(five);
         panel4.add(six);
         panel4.add(multiplyButton);
         panel4.add(percentButton);
+        panel4.add(cosButton);
 
 
         panel5.add(one);
@@ -216,6 +223,7 @@ public class Calculator {
         panel5.add(three);
         panel5.add(minusButton);
         panel5.add(inversButton);
+        panel5.add(tanButton);
 
         panel6.add(zero);
         panel6.add(plusMinusButton);
@@ -316,6 +324,9 @@ public class Calculator {
         percentButton.addActionListener(handler);
         sqrtButton.addActionListener(handler);
         equalButton.addActionListener(handler);
+        sinButton.addActionListener(handler);
+        cosButton.addActionListener(handler);
+        tanButton.addActionListener(handler);
         //=========================//
 
 
@@ -386,7 +397,30 @@ public class Calculator {
                 }
 
                 //=======Opertators================//
-
+                if (event.getSource() == sinButton) {
+                   
+                    value1 = Double.parseDouble(displayField1.getText());
+                    answer = Math.sin(value1);
+                    displayValue = "";
+                    displayField1.setText("" + answer);
+                    displayField2.setText("Anser: " + answer);
+                }
+                if (event.getSource() == cosButton) {
+                   
+                    value1 = Double.parseDouble(displayField1.getText());
+                    answer = Math.cos(value1);
+                    displayValue = "";
+                    displayField1.setText("" + answer);
+                    displayField2.setText("Anser: " + answer);
+                }
+                if (event.getSource() == tanButton) {
+                   
+                    value1 = Double.parseDouble(displayField1.getText());
+                    answer = Math.tan(value1);
+                    displayValue = "";
+                    displayField1.setText("" + answer);
+                    displayField2.setText("Anser: " + answer);
+                }
                 if (event.getSource() == plusButton) {
                     value1 = Double.parseDouble(displayField1.getText());
                     operator = '+';
@@ -441,13 +475,13 @@ public class Calculator {
                     displayValue = displayValue.substring(0, displayValue.length() - 1);
                     displayField1.setText("" + displayValue);
                 }
-                if (event.getSource() == clearAllButton) {
+                if (event.getSource() == clearButton) {
                     value1 = 0;
-                    value2 = 0;
+                    //value2 = 0;
                     displayValue = "";
 
-                    displayField1.setText(displayValue);
-                    displayField2.setText("0");
+                    displayField1.setText(0);
+                   // displayField2.setText("0");
                 }
                 if (event.getSource() == clearAllButton) {
                     value1 = 0;
